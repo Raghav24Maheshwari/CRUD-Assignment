@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
-const DB_FILE = path.resolve(__dirname, '../../db/db.json');
-console.log(DB_FILE,"12345678")
+
+const DB_FILE = path.resolve(process.cwd(), 'src/db/db.json');
 interface User {
   userId: number;
   age: number;
@@ -9,7 +9,6 @@ interface User {
 }
 
 export const readDB = (): User[] => {
-  console.log(DB_FILE,"12345678")
   try {
     const data = fs.readFileSync(DB_FILE, 'utf-8');
     return data ? JSON.parse(data) : [];
